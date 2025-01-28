@@ -19,7 +19,9 @@ import test from "./test.mjs";
 
 //#region function -----------------------------------------------------------------
 // Write your function her.
-
+function multiply (a, b) {
+    return a * b;
+}
 
 
 //#endregion
@@ -30,7 +32,23 @@ import test from "./test.mjs";
 
 //#region Tests --------------------------------------------------------------------
 // Write your tests her.
+const tests = test("Multiply function");
 
+// Valid inputs
+tests.isEqual(multiply(1, 2), 2, "Multiplying 1 and 2, answer should be 2");
+tests.isEqual(multiply(-5, 5), -25, "Multiply -5 and 5, answer should be -25");
+tests.isEqual(multiply(2.5, 3.5), 8.75, "Multiplying 2.5 and 3.5, answer should be 8.75");
+
+// Invalid inputs
+tests.isNotANumber(multiply("1", 2), 'Sum of "1" and 2 should return NaN');
+tests.isNotANumber(multiply(1, null), "Sum of 1 and null should return NaN");
+tests.isNotANumber(multiply(undefined, 3), "Sum of undefined and 3 should return NaN");
+tests.isNotANumber(multiply(NaN, 3), "Sum of NaN and 3 should return NaN");
+
+// Edge cases
+tests.isEqual(multiply(0, 0), 0, "Sum of 0 and 0 should be 0");
+tests.isEqual(multiply(Infinity, 1), Infinity, "Sum of Infinity and 1 should be Infinity");
+tests.isEqual(multiply(-Infinity, 1), -Infinity, "Sum of -Infinity and 1 should be -Infinity");
 
 
 //#endregion
