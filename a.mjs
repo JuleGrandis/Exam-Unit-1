@@ -53,7 +53,7 @@ function multiply (...args) {
 
 
 //#region Tests --------------------------------------------------------------------
-// Write your tests her.
+// Write your tests here.
 const tests = test("Multiply function");
 
 // Valid inputs
@@ -62,8 +62,10 @@ tests.isEqual(multiply(-5, 5), -25, "Multiply -5 and 5, answer should be -25");
 tests.isEqual(multiply(2.5, 3.5), 8.75, "Multiplying 2.5 and 3.5, answer should be 8.75");
 tests.isEqual(multiply(0, 3), 0, "Multiplying 0 and 3, answer should be 0");
 
+// String to Number conversion
+tests.isEqual(multiply("10", 2), 20, 'Multiplying "10" and 2, answer should be 20');
+
 // Invalid inputs
-tests.isNotANumber(multiply("1", 2), 'Sum of "1" and 2 should return NaN');
 tests.isNotANumber(multiply(1, null), "Sum of 1 and null should return NaN");
 tests.isNotANumber(multiply(undefined, 3), "Sum of undefined and 3 should return NaN");
 tests.isNotANumber(multiply(NaN, 3), "Sum of NaN and 3 should return NaN");
