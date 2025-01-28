@@ -45,15 +45,12 @@ function multiply (...args) {
     return result;
 }
 
-
 //#endregion
-
-
-
 
 
 //#region Tests --------------------------------------------------------------------
 // Write your tests here.
+
 const tests = test("Multiply function");
 
 // Valid inputs
@@ -66,14 +63,13 @@ tests.isEqual(multiply(0, 3), 0, "Multiplying 0 and 3, answer should be 0");
 tests.isEqual(multiply("10", 2), 20, 'Multiplying "10" and 2, answer should be 20');
 
 // Invalid inputs
-tests.isNotANumber(multiply(1, null), "Sum of 1 and null should return NaN");
-tests.isNotANumber(multiply(undefined, 3), "Sum of undefined and 3 should return NaN");
-tests.isNotANumber(multiply(NaN, 3), "Sum of NaN and 3 should return NaN");
+tests.isNotANumber(multiply(1, null), "Multiplying 1 and null should return NaN");
+tests.isNotANumber(multiply(undefined, 3), "Multiplying undefined and 3 should return NaN");
+tests.isNotANumber(multiply(NaN, 3), "Multiplying NaN and 3 should return NaN");
 
 // Edge cases
-tests.isEqual(multiply(0, 0), 0, "Sum of 0 and 0 should be 0");
-tests.isEqual(multiply(Infinity, 1), Infinity, "Sum of Infinity and 1 should be Infinity");
-tests.isEqual(multiply(-Infinity, 1), -Infinity, "Sum of -Infinity and 1 should be -Infinity");
-
+tests.isEqual(multiply(0, 0), 0, "Multiplying 0 and 0 should be 0");
+tests.isEqual(multiply(Infinity, 1), Infinity, "Multiplying Infinity and 1 should be Infinity");
+tests.isEqual(multiply(-Infinity, 1), -Infinity, "Multiplying -Infinity and 1 should be -Infinity");
 
 //#endregion
