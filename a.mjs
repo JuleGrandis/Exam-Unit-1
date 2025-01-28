@@ -19,8 +19,30 @@ import test from "./test.mjs";
 
 //#region function -----------------------------------------------------------------
 // Write your function her.
-function multiply (a, b) {
-    return a * b;
+function multiply (...args) {
+    let result = 1;
+
+    for (const arg of args) {
+        if (arg === Number.POSITIVE_INFINITY || arg === Number.NEGATIVE_INFINITY) {
+            result *= arg;
+            continue;
+        }
+        
+        let num;
+        if (typeof arg === "string") {
+            num = Number(arg);
+        } else {
+            num = arg;
+        }
+
+        if (typeof num !== "number" || isNaN(num)) {
+            return NaN;
+        }
+
+        result *= num;
+    }
+
+    return result;
 }
 
 
@@ -38,6 +60,7 @@ const tests = test("Multiply function");
 tests.isEqual(multiply(1, 2), 2, "Multiplying 1 and 2, answer should be 2");
 tests.isEqual(multiply(-5, 5), -25, "Multiply -5 and 5, answer should be -25");
 tests.isEqual(multiply(2.5, 3.5), 8.75, "Multiplying 2.5 and 3.5, answer should be 8.75");
+tests.isEqual(multiply(0, 3), 0, "Multiplying 0 and 3, answer should be 0");
 
 // Invalid inputs
 tests.isNotANumber(multiply("1", 2), 'Sum of "1" and 2 should return NaN');
