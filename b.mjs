@@ -20,8 +20,26 @@ import test from "./test.mjs";
 //#region function -----------------------------------------------------------------
 // Write your function her.
 
+function formatName (tag) { //tag is placeholder name, as 'name' is a windows object
 
+if (typeof tag !== "string") {
+    return null;
+}
 
+tag = tag.trim();
+
+if (tag === "") {
+    return "";
+} else if (/[^a-zA-Z\s]/.test(tag)) {
+    return null;
+}
+
+return tag
+    .split(" ")
+    .filter(word => word !== "")
+    .map(word => word[0].toUpperCase() + word.slice(1).toLowerCase())
+    .join(" ");
+}
 //#endregion
 
 
