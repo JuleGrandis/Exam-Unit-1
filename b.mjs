@@ -51,6 +51,7 @@ return tag
 const tests = test("formatName Function");
 
 tests.isEqual(formatName("john doe"), "John Doe", "Formatting 'john doe' to 'John Doe'");
-tests.isEqual(formatName(" john doe "), "John Doe", "Formatting 'john doe' to 'John Doe'");
+tests.isEqual(formatName(" john doe "), "John Doe", "Formatting ' john doe ' to 'John Doe'");
+tests.isEqual(formatName("JOHN DOE"), "John Doe", "Formatting 'JOHN DOE' to 'John Doe'");
 
 //#endregion
