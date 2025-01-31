@@ -48,7 +48,8 @@ return tag
 
 //#region Tests --------------------------------------------------------------------
 // Write your tests her.
+const tests = test("formatName Function");
 
-
+tests.isEqual(formatName("john doe"), "John Doe", "Formatting 'john doe' to 'John Doe'");
 
 //#endregion
