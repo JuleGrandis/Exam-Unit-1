@@ -57,5 +57,6 @@ tests.isEqual(formatName("john    doe"), "John Doe", "Formatting 'john    doe' t
 tests.isEqual(formatName(""), "", "Handling empty string");
 tests.isEqual(formatName("   "), "", "Handling only spaces");
 tests.isEqual(formatName(null), null, "Handling of null");
+tests.isEqual(formatName(123), null, "Handling numbers");
 
 //#endregion
