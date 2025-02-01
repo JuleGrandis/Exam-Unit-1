@@ -42,13 +42,16 @@ function guessNumber(target, guess) {
 //#endregion
 
 //#region Tests --------------------------------------------------------------------
-
+const tests = test("Guess number function");
 // Basic cases
-test.isEqual(guessNumber(10, 5), "Too low", "If target is 10 and guess is 5, return 'Too low'");
-test.isEqual(guessNumber(10, 15), "Too high", "If target is 10 and guess is 15, return 'Too high'");
-test.isEqual(guessNumber(10, 10), "Correct!", "If target is 10 and guess is 10, return 'Correct!'");
+tests.isEqual(guessNumber(10, 5), "Too low", "If target is 10 and guess is 5, return 'Too low'");
+tests.isEqual(guessNumber(10, 15), "Too high", "If target is 10 and guess is 15, return 'Too high'");
+tests.isEqual(guessNumber(10, 10), "Correct!", "If target is 10 and guess is 10, return 'Correct!'");
 
 // Invalid inputs
+tests.isEqual(guessNumber(10, "5"), null, "String number input should return null");
+tests.isEqual(guessNumber("5", 10), null, "String number input should return null reversed");
+tests.isEqual(guessNumber(10, null), null, "String number input should return null'");
 
 
 // Edge cases
