@@ -34,6 +34,7 @@ if (tag === "") {
     return null;
 }
 
+
 return tag
     .split(" ")
     .filter(word => word !== "")
@@ -50,13 +51,20 @@ return tag
 // Write your tests her.
 const tests = test("formatName Function");
 
+//Valid Inputs
 tests.isEqual(formatName("john doe"), "John Doe", "Formatting 'john doe' to 'John Doe'");
 tests.isEqual(formatName(" john doe "), "John Doe", "Formatting ' john doe ' to 'John Doe'");
 tests.isEqual(formatName("JOHN DOE"), "John Doe", "Formatting 'JOHN DOE' to 'John Doe'");
 tests.isEqual(formatName("john    doe"), "John Doe", "Formatting 'john    doe' to 'John Doe'");
+
+//Empty strings
 tests.isEqual(formatName(""), "", "Handling empty string");
 tests.isEqual(formatName("   "), "", "Handling only spaces");
+
+//Invalid Inputs
 tests.isEqual(formatName(null), null, "Handling of null");
 tests.isEqual(formatName(123), null, "Handling numbers");
-
+tests.isEqual(formatName("£john£@do[e"), null, "Handling special characters");
+tests.isEqual(formatName("o'connor"), null, "Handling apostrophes in string");
+tests.isEqual(formatName("mary-jane"), null, "Handling hyphens in string");
 //#endregion
