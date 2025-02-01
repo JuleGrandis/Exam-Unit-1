@@ -11,7 +11,26 @@ import test from "./test.mjs";
 */
 
 function sequence(n) {
+    if (typeof n !== "number" || n < 0 || !Number.isInteger(n)) {
+        return null;
+    }
 
+    if (n === 0) {
+        return 0;
+    } else if (n === 1) {
+        return 1;
+    }
+
+    let a = 0;
+    let b = 1;
+
+    for (let i = 2; i <= n; i++) {
+        let temp = a + b;
+        a = b;
+        b = temp;
+    }
+
+    return b;
 }
 
 //#region Tests --------------------------------------------------------------------
