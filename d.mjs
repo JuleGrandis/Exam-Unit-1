@@ -51,7 +51,8 @@ tests.isEqual(guessNumber(10, 10), "Correct!", "If target is 10 and guess is 10,
 // Invalid inputs
 tests.isEqual(guessNumber(10, "5"), null, "String number input should return null");
 tests.isEqual(guessNumber("5", 10), null, "String number input should return null reversed");
-tests.isEqual(guessNumber(10, null), null, "String number input should return null'");
+tests.isEqual(guessNumber(10, null), null, "Null input should return null");
+tests.isEqual(guessNumber(null, 10), null, "Null input should return null reversed");
 
 
 // Edge cases
